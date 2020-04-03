@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>周公解梦</title>
+    <script type="text/javascript" src="myajax.js"></script>
+    <script src="./jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="./index.css">
+</head>
+<body>
+    <div id="frame">
+        <img class="img" src="./20200401155330.jpg" alt="">
+        <div class="top">
+                <a href="" style="color:white; background-color: #A95F52;">解梦首页</a> 
+                <a href="">分类解梦</a>
+                <a href="">孕妇解梦</a>
+                <a href="">梦与性</a>
+            <div class="sousuo">
+               <h4> 梦见：</h4>
+                <input type="text" placeholder="你梦见的是什么？比如关键词：鞋">
+                <button class="but">解梦</button>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        //点击按钮
+        var btn = $(".but");
+
+        btn.click(function(){
+            _.jsonp("https://api.jisuapi.com/dream/search", {
+                appkey:"42ca7f9ba874fc7b",
+                keyword:"鞋",
+                pagenum:1,
+                pagesize:10
+            },"haha",function (data, error) {
+                console.log(data);
+                createArticle(data.result.list[0,1,2,3].name,data.result.list[0,1,2,3].content);
+            })
+        })
+        function createArticle(name,content){
+            if(document.querySelector("#artContainer")){
+                $("#artContainer").remove();
+            }
+            var artContainer = $("<div id='artContainer'></div>");
+            var artTitle = $("<h2 id= 'artTitle'></h2>");
+                artTitle.html(name);
+            var artContent = $("<div id='artContent'></div>");
+                artContent.html(content);
+            
+            artContainer.append(artTitle).append(artContent);
+            $(".sousuo").append(artContainer);
+        }
+       
+    </script>
+    
+</body>
+</html>

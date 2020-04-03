@@ -1,0 +1,46 @@
+*{
+    margin:0;
+    padding:0;
+    /* background-color: yellowgreen; */
+}
+a{
+    text-decoration: none;
+}
+.img{
+    width:100%;
+}
+.top>a{
+    display:inline-block;
+    width: 341px;
+    padding:10px 0;
+    color:#333;
+    text-align: center;
+    margin-left:-5px;
+    border:1px solid #555;
+}
+.sousuo{
+    width:1000px;
+    margin:0 auto;   
+}
+.sousuo>input{
+    width:800px;
+    padding:10px;
+    margin-top:10px;
+    border:1px solid gray;
+}
+h4{
+    display: inline-block;
+    color:#A95F52;
+}
+.but{
+    width:50px;
+    height:40px;
+    color:white;
+    background-color:#A95F52;
+    margin-left:-4px;
+    border:1px solid white;
+}
+#artTitle,#artContent{
+    text-align: center;
+    color:black;
+}
